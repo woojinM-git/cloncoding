@@ -1,0 +1,157 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+#wrap {
+ text-align:center;
+}
+#wrap-center {
+    width: 1280px;
+    display: inline-block;
+    background-color: yellow;
+}
+#header {
+    text-align: left;
+    position: relative; /*absolute로 인해 끝에 붙는거 방지 영역제한 두기*/
+}
+.header-icon {
+    position: absolute; /*absolute 로 left를 주면 왼쪽 끝에 붙는다*/
+    top: 18px;
+    display: block; /*박스로 취급(사이즈변경하기위해)*/
+    padding: 8px;
+    cursor: pointer; /*커서 올리면 손 모양으로 바뀜*/
+    background: none; /*버튼을 지정하면 생기는 배경 제거*/
+    border: none; /*버튼을 지정하면 생기는 보더 제거*/
+}
+.header-icon:hover::before { /*hove 했을때만 나타나게*/
+    content: '';
+    position: absolute; /*before에 위치 정보를 넣어주기 위해*/
+    z-index: 0; /*호버하지않으면 보이지 않게 설정*/
+    left: 1px; /*left, top 으로 호버배경 위치 조정*/
+    top: 1px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--color_option_bg); /*배경의 색*/
+    border-radius: 50%; /*50% 값을 넣으면 원이 됌*/
+}
+.header-icon > div {
+    width: 32px; 
+    height: 32px;
+    position: relative; /*z-index를 적용하기위해 position: relative 적용*/
+    z-index: 1; /*z-index는 형제끼리만 적용된다*//*다른 메뉴보다 뒤에 위치*/
+    background-image: url(./sp_main.png); /*이미지 주소*/
+    background-repeat: no-repeat; /*이미지 끝에 갔을때 반대로 이동(위랑같이씀)*/
+    background-size: 463px 442px; /*가져온 이미지 파일의 사이즈 조절*/
+}
+#header-hamburger {
+    left: -10px;
+}
+#header-hamburger > div {
+    background-position: -311px -166px; /*이미지들 중 사용하는 이미지 위치*/
+}
+
+#header-naverpay {
+    left: 42px;
+}
+#header-naverpay > div {
+    background-position: -248px -260px; /*이미지들 중 사용하는 이미지 위치*/
+}
+
+#header-navertalk {
+    right: 94px;
+}
+#header-navertalk > div {
+    background-position: -99px -316px; /*이미지들 중 사용하는 이미지 위치*/
+}
+
+#header-notice {
+    right: 42px;
+}
+#header-notice > div {
+    background-position: -311px -232px; /*이미지들 중 사용하는 이미지 위치*/
+}
+
+#header-shoppingcart {
+    right: -10px;
+}
+#header-shoppingcart > div {
+    background-position: -33px -316px; /*이미지들 중 사용하는 이미지 위치*/
+}
+
+#main {
+    height: 2000px;
+}
+.blind { /*시각장애인을 위해 none으로 하지않고 설정 적용*/
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+:root {
+    --color_title: #080808;
+    --color_title_rgb: 8, 8, 8;
+    --color_body: #101010;
+    --color_body_rgb: 16, 16, 16;
+    --color_caption1: #404040;
+    --color_caption1_rgb: 64, 64, 64;
+    --color_caption2: #606060;
+    --color_caption2_rgb: 96, 96, 96;
+    --color_caption3: #555558;
+    --color_caption3_rgb: 85, 85, 88;
+    --color_search: #000;
+    --color_search_rgb: 0, 0, 0;
+    --color_border_out: #e3e5e8;
+    --color_border_out_rgb: 227, 229, 232;
+    --color_border_in: #ebebeb;
+    --color_border_in_rgb: 235, 235, 235;
+    --color_border_in_divider: #ebebeb;
+    --color_border_in_divider_rgb: 235, 235, 235;
+    --color_border_in_exception: #ebebeb;
+    --color_border_in_exception_rgb: 235, 235, 235;
+    --color_button_border: #dadcdf;
+    --color_button_border_rgb: 218, 220, 223;
+    --color_dot_divider: #d3d5d7;
+    --color_dot_divider_rgb: 211, 213, 215;
+    --color_block_bg: #fff;
+    --color_block_bg_rgb: 255, 255, 255;
+    --color_board_bg: #f4f6fa;
+    --color_board_bg_rgb: 244, 246, 250;
+    --color_option_bg: #f5f7f8;
+    --color_option_bg_rgb: 245, 247, 248;
+    --color_login_bg: #fafbfb;
+    --color_login_bg_rgb: 250, 251, 251;
+    --color_menu_widget_bg: #fff;
+    --color_menu_widget_bg_rgb: 255, 255, 255;
+    --color_setting_bg: #fff;
+    --color_setting_bg_rgb: 255, 255, 255;
+    --color_button1_bg: #fff;
+    --color_button1_bg_rgb: 255, 255, 255;
+    --color_button2_bg: #fff;
+    --color_button2_bg_rgb: 255, 255, 255;
+    --color_news: #3a67ea;
+    --color_news_rgb: 58, 103, 234;
+    --color_news_econ_stay: #909aab;
+    --color_news_econ_stay_rgb: 144, 154, 171;
+    --color_news_econ_down: #4f67d6;
+    --color_news_econ_down_rgb: 79, 103, 214;
+    --color_live_news_price: #f4361e;
+    --color_live_news_price_rgb: 244, 54, 30;
+    --color_enter: #e538e2;
+    --color_enter_rgb: 229, 56, 226;
+    --color_enter_bg: #f2f1fb;
+    --color_enter_bg_rgb: 242, 241, 251;
+    --color_sports: #1f65ef;
+    --color_sports_rgb: 31, 101, 239;
+    --color_sports_bg: #f4f7fe;
+    --color_sports_bg_rgb: 244, 247, 254;
+    --color_econ: #008f76;
+    --color_econ_rgb: 0, 143, 118;
+    --color_calendar: #eb5b5b;
+    --color_calendar_rgb: 235, 91, 91;
+    --color_dic: #031f5f;
+    --color_dic_rgb: 3, 31, 95;
+    --color_shop: #9858f5;
+    --color_shop_rgb: 152, 88, 245;
+}
