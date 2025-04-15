@@ -1,4 +1,7 @@
-html, body {
+* {
+    box-sizing: border-box;
+}
+html, body, form {
     margin: 0;
     padding: 0;
 }
@@ -7,12 +10,12 @@ html, body {
 }
 #wrap-center {
     width: 1280px;
-    display: inline-block;
-    background-color: yellow;
+    display: inline-block; /*줄바꿈 없이 옆에 배치되면서도, 크기 조절이 가능한 박스*/
 }
 #header {
     text-align: left;
     position: relative; /*absolute로 인해 끝에 붙는거 방지 영역제한 두기*/
+    height: 52px;
 }
 .header-icon {
     position: absolute; /*absolute 로 left를 주면 왼쪽 끝에 붙는다*/
@@ -88,6 +91,87 @@ html, body {
     height: 1px;
     margin: -1px;
     overflow: hidden;
+}
+#search > form {
+    display: inline-flex; /*줄바꿈 없이 옆에 배치되면서도, 크기 조절이 가능한 박스*/
+    width: 708px; /*너비*/
+    height: 60px; /*높이*/
+    border: 1px solid #03c75a; /*테두리에 1px 초록색(#03c75a)선을 표시한다*/
+    border-radius: 33px; /*모서리를 둥글게 표시한다.*/
+    text-align: left; /*자동 가운데 정렬인데 풀고 왼쪽으로 붙임*/
+}
+#search > form:hover { /*(hover)마우스를 위에 올려놓은 상태*/
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12); /*검색창 호버하면 그림자 나타남*/
+}
+#search-svg {
+    display: inline-flex; /*다른 인라인 요소들과 한 줄에 배치되도록 하면서 flex정렬*/
+    justify-content: center; /*가로축 가운데 정렬*/
+    align-items: center; /*세로축 가운데 정렬*/
+    width: 67px;
+    height: 100%;
+    padding: 17px 16px 17px 27px;
+}
+#search-svg svg {
+    width: 24px;
+    height: 24px;
+    fill: #03c75a; /*#03c75a(초록색)으로 채움*/
+}
+#search-input {
+    width: 480px;
+    padding: 17px 0;
+    font-size: 1.4rem; /*글씨 크기*/
+    line-height: 24px; /*패딩과 함께 중앙정렬을 세심하게 다듬는 역할*/
+    border: none; /*테두리 제거*/
+    outline: none; /*테두리 제거*/
+}
+#search-input::placeholder { /*작성된 글자가 없을 때 표시됨*/
+    color: white;
+}
+#search-input:focus::placeholder { /*(focus)마우스가 클릭된 상태*/
+    color: rgb(230, 230, 230)
+}
+#search-right {
+    display: flex;
+    flex: 1; /*같은 flex 안에서 한번만 선언되면 남은 공간만큼 영역이 늘어남*/
+    justify-content: center; /*가로축 가운데 정렬*/
+}
+#search-keyboard, #search-recent, #search-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+#search-keyboard::before {
+    content: "";
+    display: block;
+    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-size: 463px 442px;
+    background-position: -148px -301px;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 14px;
+}
+#search-keyboard:hover::before { /*(hover)마우스를 위에 올려놓은 상태*/
+    background-position: -73px -301px; /* hover용 진한 이미지 좌표 */
+}
+#search-recent::before {
+    content: "";
+    display: block;
+    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-size: 463px 442px;
+    background-position: -453px -422px;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 6px;
+}
+#search-button::before {
+        content: "";
+        display: block;
+        background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+        background-size: 463px 442px;
+        background-position: -405px -105px; /*이미지의 돋보기 좌표*/
+        background-repeat: no-repeat; /*이미지를 반복하지 않음*/
+        width: 24px;  
+        height: 24px;
 }
 :root {
     --color_title: #080808;
