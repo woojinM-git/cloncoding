@@ -1,7 +1,16 @@
 * {
     box-sizing: border-box;
 }
-html, body, form {
+html, body, form, ul {
+    font-size: 10.5px;
+    line-height: 10.5px;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.4px;
+}
+form, ul {
     margin: 0;
     padding: 0;
 }
@@ -119,7 +128,7 @@ html, body, form {
 #search-input {
     width: 480px;
     padding: 17px 0;
-    font-size: 1.4rem; /*글씨 크기*/
+    font-size: 2rem; /*글씨 크기*/
     line-height: 24px; /*패딩과 함께 중앙정렬을 세심하게 다듬는 역할*/
     border: none; /*테두리 제거*/
     outline: none; /*테두리 제거*/
@@ -172,6 +181,98 @@ html, body, form {
         background-repeat: no-repeat; /*이미지를 반복하지 않음*/
         width: 24px;  
         height: 24px;
+}
+#nav {
+    margin-top: 8px;
+}
+#nav > ul {
+    display: flex; /*nav 의 자식 ul 태그를 flex로 한다*/
+    list-style-type: none; /*list 태그의 점을 없앤다*/
+    justify-content: center;
+    font-size: 1.3rem; /*글씨 크기 변경*/
+    line-height: 20px; /*텍스트 줄 간의 세로 간격(rem사용 시 적용)*/
+    /*rem으로 사용자가 글자 크기를 늘려도 텍스트 공간이 여유로워야 함*/
+}
+#nav a {
+    width: 64px;
+    display: block;
+    text-decoration: none; /*글자의 밑줄 제거*/
+    text-align: center; /*자식요소를 가운데 정렬(본인X)*/
+}
+#nav a div {
+    width: 40px;
+    height: 40px;
+    margin: auto; /*가운데 정렬하는 center 외 의 방법*/
+    position: relative; /*::before를 사용할 때 position: absolute;를 주고 기준점을 잡기 위해 relative적용*/
+    text-align: center; /*자식요소를 가운데 정렬(본인X)*/
+}
+#nav a div::after {
+    content: ''; /*before&after요소에 꼭 필요함*/
+    position: relative; /*z-index를 적용하기 위해 relative 선언*/
+    z-index: 1; /*이미지가 ::before 위에 위치하도록*/
+    display: inline-block; /*이미지도 넣고 블록요소로 정의함(이미지 넣기위해)*/
+    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-size: 463px 442px;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+}
+#nav a:visited {
+    color: black; /*방문했어도 검은색으로*/
+}
+#nav li {
+    width: 64px;
+}
+#nav li a div::before {
+    content: ""; /*before&after요소에 꼭 필요함*/
+    display: block;
+    position: absolute; /*absolute는 가장 가까운 position이 지정된 부모 요소(여기선 div)를 기준으로 배치*/
+    top: -1px;
+    left: -3px;
+    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-size: 463px 442px;
+    background-position: -153px -142px;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+}
+#nav li:nth-of-type(1) a div::after {
+    background-position: -205px -219px;
+}
+#nav li:nth-of-type(2) a div::after {
+    background-position: -41px -219px;
+}
+#nav li:nth-of-type(3) a div::after {
+    background-position: 0px -219px;
+}
+#nav li:nth-of-type(4) a div::after {
+    background-position: -41px -260px;
+}
+#nav li:nth-of-type(5) a div::after {
+    background-position: -270px -205px;
+}
+#nav li:nth-of-type(6) a div::after {
+    background-position: -123px -260px;
+}
+#nav li:nth-of-type(7) a div::after {
+    background-position: 0px -260px;
+}
+#nav li:nth-of-type(8) a div::after {
+    background-position: -270px 0px;
+}
+#nav li:nth-of-type(9) a div::after {
+    background-position: -164px -260px;
+}
+#nav li:nth-of-type(10) a div::after {
+ /*치지직 이미지 입니다.*/
+}
+#nav li:nth-of-type(11) a div::after {
+    background-position: -270px -164px;
+}
+#nav li a span {
+    display: inline-block;
+    margin-top: 4px; /*검색창과 거리를 두기 위함*/
 }
 :root {
     --color_title: #080808;
