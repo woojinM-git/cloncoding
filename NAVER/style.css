@@ -274,6 +274,162 @@ form, ul {
     display: inline-block;
     margin-top: 4px; /*검색창과 거리를 두기 위함*/
 }
+#main {
+    display: flex;
+    margin-top: 32px;
+}
+#main-left {
+    width: 830px;
+    margin-right: 30px;
+}
+#main-right {
+    width: 420px;
+}
+#main-left-add, #main-right-add {
+    background: gray;
+}
+aside[id$=add] { /*$=add(add로 끝나는 값 선택)*/
+    border-radius: 8px; /*요소의 모서리를 둥글게 만든다*/
+    margin-bottom: 16px;
+}
+#main-left-add { /*왼쪽 광고영역*/
+    height: 130px;
+}
+section[id^=main] { /*^=(main으로 시작하는 값 선택)*/
+    box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0, 0, 0, .04); /*영역들의 테두리를 박스쉐도우로*/
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+#main-login { /*로그인영역*/
+    height: 164px;
+    padding: 21px 20px 18px;
+    font-size: 1.4rem;
+    display: flex;
+    flex-flow: column;
+}
+#main-login > div:first-of-type {
+    line-height: 20px; /*미적용시 미묘하게 다름*/
+    text-align: center;
+}
+#main-login-button {
+    height: 56px;
+    margin-top: 13px;
+    padding: 17px 0;
+    background-color: #03c75a;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, .06);
+    border-radius: 4px;
+    text-decoration: none; /*밑줄제거*/
+}
+#main-login-button > i { /*네이버로그인 네이버이미지*/
+    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-size: 463px 442px;
+    background-position: 0px -301px;
+    background-repeat: no-repeat;
+    width: 72px;
+    height: 17px;
+    display: inline-block;
+    margin: 3px 8px 0 0;
+    vertical-align: center; /*네이버 텍스트를 가운데 정렬*/
+}
+#main-login > div:last-of-type { /*마지막 자식(아이디찾기... 등등)*/
+    font-size: 1.3rem;
+    margin-top: 16px;
+    height: 20px;
+}
+#main-login > div:last-of-type > a {
+    color: #606060;
+    color: var(--color_caption2);
+    text-decoration: none; /*밑줄제거*/
+}
+#main-login > div:last-of-type > a:hover {
+    text-decoration: underline; /*마우스 호버 시 밑줄 보이게*/
+}
+#main-login > div:last-of-type > a:nth-of-type(2)::before, #main-login > div:last-of-type > a:nth-of-type(2)::after {
+    /*비밀번호 찾기 양 옆에 구분 선 생성*/
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    background-color: #d3d5d7; /*구식컬러지정(최식을 지원안하는 브라우저를 신경씀)*/
+    background-color: var(--color_dot_divider); /*신식컬러지정(혹시몰라 구식도 같이 적용)*/
+    margin: 4px 12px 0;
+}
+#main-newstand {
+    height: 426px;
+    display: flex;
+    flex-flow: column;
+}
+#main-newstand-top {
+    flex: 1;
+    padding: 18px 20px;
+}
+#main-newstand header {
+    font-size: 1.6rem;
+    color: rgba(8, 8, 8, .5);
+    display: flex; /*(justify-content)를 위해 flex 지정*/
+    justify-content: flex-start; /*flex의 시작지점기준 정렬(왼쪽 정렬)*/
+    line-height: 23px;
+    margin-bottom: 17px;
+}
+#main-newstand header .bold {
+    font-weight: bold; /*글씨를 두껍게*/
+    color: black;
+}
+#main-newstand-gray { /*회색부분*/
+    display: flex; 
+    height: 50px;
+    padding: 12px 20px;
+    justify-content: flex-start;
+    background-color: var(--color_option_bg);
+    border-radius: 4px;
+}
+#main-newstand a {
+    text-decoration: none; /*밑줄 제거*/
+}
+#main-newstand a:visited {
+    color: inherit; /*방문 했어도 색이 변하지 않음*/
+}
+#main-newstand a:hover {
+    text-decoration: underline; /*호버 시 밑줄 생성*/
+}
+#main-newstand-grid { /*격자일때 사용하기 적합함*/
+    display: grid; /*부모나 자신이 inline요소면 inline-grid로 작성*/
+    grid-template-rows: 56px 56px 56px 56px; /*rows=세로*/
+    grid-template-columns: 131.27px 131.27px 131.27px 131.27px 131.27px 131.27px; /*columns=가로*/
+    grid-gap: 1px;
+    background-color: var(--color_border_in);
+    border: 1px solid var(--color_border_in);
+    border-radius: 4px;
+    margin-top: 17px;
+}
+#main-newstand-grid > div {
+    background-color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center; /*축을 센터로*/
+    align-items: center; /*축을 센터로*/
+}
+#main-newstand footer {
+    padding: 10px 0 11px;
+    border-top: 1px solid #ebebeb;
+    border-top: 1px solid var(--color_border_in);
+}
+#main-right-add { /*오른쪽 광고영역*/
+    height: 240px;
+}
+#main-shopping { /*쇼핑영역*/
+    height: 560px;
+}
+.main-weather-and-stock { /*영역 자체의 크기*/
+    height: 236px;
+    padding: 0 18px;
+}
+.main-weather-and-stock > header {
+    height: 52px;
+    padding: 6px 0;
+    border-bottom: 1px solid #e3e5e8; /*영역 나누는 선*/
+}
 :root {
     --color_title: #080808;
     --color_title_rgb: 8, 8, 8;
