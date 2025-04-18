@@ -146,13 +146,13 @@ form, ul {
 }
 #search-keyboard, #search-recent, #search-button {
     background: transparent;
-    border: none;
-    cursor: pointer;
+    border: none; /*바깥 줄 제거*/
+    cursor: pointer; /*커서를 올리면 손모양으로*/
 }
 #search-keyboard::before {
     content: "";
     display: block;
-    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-image: url(./sp_main.png);
     background-size: 463px 442px;
     background-position: -148px -301px;
     background-repeat: no-repeat;
@@ -165,7 +165,7 @@ form, ul {
 #search-recent::before {
     content: "";
     display: block;
-    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-image: url(./sp_main.png);
     background-size: 463px 442px;
     background-position: -453px -422px;
     background-repeat: no-repeat;
@@ -175,7 +175,7 @@ form, ul {
 #search-button::before {
         content: "";
         display: block;
-        background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+        background-image: url(./sp_main.png);
         background-size: 463px 442px;
         background-position: -405px -105px; /*이미지의 돋보기 좌표*/
         background-repeat: no-repeat; /*이미지를 반복하지 않음*/
@@ -211,7 +211,7 @@ form, ul {
     position: relative; /*z-index를 적용하기 위해 relative 선언*/
     z-index: 1; /*이미지가 ::before 위에 위치하도록*/
     display: inline-block; /*이미지도 넣고 블록요소로 정의함(이미지 넣기위해)*/
-    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-image: url(./sp_main.png);
     background-size: 463px 442px;
     background-repeat: no-repeat;
     width: 40px;
@@ -230,7 +230,7 @@ form, ul {
     position: absolute; /*absolute는 가장 가까운 position이 지정된 부모 요소(여기선 div)를 기준으로 배치*/
     top: -1px;
     left: -3px;
-    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-image: url(./sp_main.png);
     background-size: 463px 442px;
     background-position: -153px -142px;
     background-repeat: no-repeat;
@@ -322,7 +322,7 @@ section[id^=main] { /*^=(main으로 시작하는 값 선택)*/
     text-decoration: none; /*밑줄제거*/
 }
 #main-login-button > i { /*네이버로그인 네이버이미지*/
-    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-image: url(./sp_main.png);
     background-size: 463px 442px;
     background-position: 0px -301px;
     background-repeat: no-repeat;
@@ -356,6 +356,7 @@ section[id^=main] { /*^=(main으로 시작하는 값 선택)*/
     margin: 4px 12px 0;
 }
 #main-newstand {
+    color: black;
     height: 426px;
     display: flex;
     flex-flow: column;
@@ -363,6 +364,39 @@ section[id^=main] { /*^=(main으로 시작하는 값 선택)*/
 #main-newstand-top {
     flex: 1;
     padding: 18px 20px;
+}
+#main-newstand-top .dot::before  { /*top의 (점) 구현*/
+    content: ''; /*befor의 필요*/
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color: #d3d5d7;
+    background-color: var(--color_dot_divider);
+    margin: 9px 7px 0;
+    border-radius: 50%;
+    vertical-align: top;
+}
+#main-newstand-top .slash, #main-newstand-top .dot {
+    color: rgba(8,8,8,.5);
+    font-weight: 800;
+}
+#main-newstand-top .slash { /*before의 absolute를 위해 relative 적용*/
+    position: relative;
+    padding-left: 26px;
+}
+#main-newstand-top .slash::before { /*top의 / 구현*/
+    content: ''; /*befor의 필요*/
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    left: 13px;
+    width: 1px;
+    height: 15px; /*형태의 배경을*/
+    background-color: #d3d5d7;
+    background-color: var(--color_dot_divider);
+    -webkit-transform: skewX(-15deg);
+    -ms-transform: skewX(-15deg);
+    transform: skewX(-15deg); /*기울임*/
 }
 #main-newstand header {
     font-size: 1.6rem;
@@ -383,6 +417,85 @@ section[id^=main] { /*^=(main으로 시작하는 값 선택)*/
     justify-content: flex-start;
     background-color: var(--color_option_bg);
     border-radius: 4px;
+    font-size: 1.4rem;
+    line-height: 26px;
+}
+#main-newstand-gray .right {
+    display: flex;
+}
+#main-newstand-gray .left {
+    flex: 1;
+    display: flex;
+}
+#main-newstand-gray .left > a:first-of-type {
+    width: 85.5px;
+    color: #404040;
+    color: var(--color_caption1);
+}
+#main-newstand-gray .left > a:first-of-type::after { /*아래화살표*/
+    content: '';
+    background-image: url(./sp_main.png);
+    background-size: 463px 442px;
+    background-position: -453px -436px;
+    background-repeat: no-repeat;
+    width: 9px;
+    height: 6px;
+    display: inline-block;
+    margin: 10px 0 0 5px;
+    vertical-align: top;
+}
+#main-newstand-gray .bold { /*뉴스홈 요소*/
+    font-weight: bold;
+    padding-left: 25px;
+    position: relative;
+}
+#main-newstand-gray .bold::before { /*뉴스홈 요소*/
+    content: "";
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    width: 1px;
+    height: 12px;
+    background-color: #d3d5d7;
+    background-color: var(--color_dot_divider);
+}
+#main-newstand-animation {
+    padding-left: 25px;
+    position: relative;
+}
+#main-newstand-animation::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    background-color: #d3d5d7;
+    background-color: var(--color_dot_divider);
+    width: 1px;
+    height: 12px;
+}
+#main-newstand-animation a:first-of-type {
+    vertical-align: top; /*연합뉴스요소를 상단고정*/
+    line-height: 26px;
+}
+#main-newstand-animation a:first-of-type::after { /*연합뉴스 오른쪽 점 추가*/
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    background-color: #d3d5d7;
+    background-color: var(--color_dot_divider);
+    margin: 12px 6px 0 6px;
+    border-radius: 50%;
+    vertical-align: top;
+}
+#main-newstand-animation a:last-of-type {
+    text-overflow: ellipsis;
+    width: 400px;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
 }
 #main-newstand a {
     text-decoration: none; /*밑줄 제거*/
@@ -393,17 +506,17 @@ section[id^=main] { /*^=(main으로 시작하는 값 선택)*/
 #main-newstand a:hover {
     text-decoration: underline; /*호버 시 밑줄 생성*/
 }
-#main-newstand-grid { /*격자일때 사용하기 적합함*/
+#main-newstand-grid { /*격자구조에 사용하기 적합함*/
     display: grid; /*부모나 자신이 inline요소면 inline-grid로 작성*/
     grid-template-rows: 56px 56px 56px 56px; /*rows=세로*/
     grid-template-columns: 131.27px 131.27px 131.27px 131.27px 131.27px 131.27px; /*columns=가로*/
-    grid-gap: 1px;
-    background-color: var(--color_border_in);
+    grid-gap: 1px; /*셀 사이에 1px 간격을 만든다 > 경계선처럼 보임*/
+    background-color: var(--color_border_in); /*gap으로 생긴 틈에 보일 배경색을 border와 동일한 색으로 지정*/
     border: 1px solid var(--color_border_in);
     border-radius: 4px;
     margin-top: 17px;
 }
-#main-newstand-grid > div {
+#main-newstand-grid > div { /**/
     background-color: white;
     height: 100%;
     display: flex;
@@ -414,6 +527,103 @@ section[id^=main] { /*^=(main으로 시작하는 값 선택)*/
     padding: 10px 0 11px;
     border-top: 1px solid #ebebeb;
     border-top: 1px solid var(--color_border_in);
+    font-size: 1.3rem;
+    line-height: 35px;
+    font-weight: 600;
+    color: #606060;
+    color: var(--color_caption2);
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+#main-newstand footer .list, #main-newstand footer .grid {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    top: 0; /*위로 붙게*/
+    background-color: transparent; /*배경 투명*/
+}
+#main-newstand footer .list {
+    right: 49px;
+    padding: 18px 9px 18px 20px;
+}
+#main-newstand footer .list::before {
+    content: '';  
+    display: inline-block;
+    background-image: url(./sp_main.png);
+    background-size: 463px 442px;
+    background-position: -229px -376px;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+#main-newstand footer .list:hover::before {
+    background-position: -208px -376px;
+}
+#main-newstand footer .grid {
+    right: 0;
+    padding: 18px 20px 18px 9px;
+}
+#main-newstand footer .grid::before {
+    content: '';  
+    display: inline-block;
+    background-image: url(./sp_main.png);
+    background-size: 463px 442px;
+    background-position: -432px 0px;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+#main-newstand footer .news {
+    color: #3a67ea;
+    color: var(--color_news);
+}
+#main-newstand footer .total {
+    color: rgba(96, 96, 96, .5);
+}
+.ft1st-button, .ft2nd-button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #dadcdf;
+    border: 1px solid var(--color_button_border);
+    background-color: #fff;
+    background-color: var(--color_button1_bg);
+    position: relative;
+    display: inline-block;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .06);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .06);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.ft1st-button::before, .ft2nd-button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    height: 12px;
+    margin: auto;
+    content: "";
+    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+    background-size: 463px 442px;
+    background-position: -453px -78px;
+    background-repeat: no-repeat;
+}
+.ft1st-button::before { /* 180도 회전해서 반대 방향 */
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); 
+}
+.next {
+    width: 156px;
+    padding: 0 16px;
+    height: 35px;
+    display: inline-block
+}
+section footer .shop {
+    color: #9858f5;
 }
 #main-right-add { /*오른쪽 광고영역*/
     height: 240px;
